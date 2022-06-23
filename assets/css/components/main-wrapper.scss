@@ -1,0 +1,21 @@
+.main-wrapper {
+  width: 100vw;
+  height: var(--vh);
+  background-color: $mainBg;
+  overflow: hidden;
+
+  &__section {
+    height: 80%;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 45%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+  }
+}

@@ -1,0 +1,28 @@
+.section {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    width: 50%;
+  }
+
+  &__title {
+    @include fz-xxl;
+
+    margin-bottom: 25px;
+  }
+
+  &__subTitle {
+    @include fz-l;
+
+    margin-bottom: 20px;
+  } 
+
+  &__text {
+    @include fz-m;
+    
+    margin-bottom: 20px;
+  }
+}
