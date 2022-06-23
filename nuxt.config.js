@@ -2,6 +2,9 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'GP-WEBSITE',
+    router: {
+      base: '/GF-website/'
+    },
     htmlAttrs: {
       lang: 'en'
     },
