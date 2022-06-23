@@ -39,7 +39,7 @@
       </div>
     </main>
     <img
-      src="@/assets/img/intro_img.jpeg"
+      src="~/assets/img/intro_img.jpeg"
       alt="img"
       class="main-wrapper__img"
     />
