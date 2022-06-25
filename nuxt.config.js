@@ -1,7 +1,11 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  target: 'static',
+  router: {
+    base: '/GF-website/'
+  },
   head: {
-    title: 'GP-WEBSITE',
+    title: 'Gapter & Franz Law firm',
     htmlAttrs: {
       lang: 'en'
     },
@@ -18,6 +22,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/css/reset.css',
+    '~/assets/css/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

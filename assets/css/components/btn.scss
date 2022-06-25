@@ -1,0 +1,24 @@
+.btn {
+  @include ff-Cormorant;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  width: 150px;
+  border: none;
+  text-align: center;
+
+  cursor: pointer;
+
+  &.primary {
+    background-color: #000;
+    color: #fff;
+  }
+
+  &.secondary {
+    width: 100px;
+    background-color:rgba(255, 255, 255, 0.2);
+    color: #000;
+  }
+}
