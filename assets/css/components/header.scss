@@ -7,6 +7,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 40px 0;
+
+    @include _480 {
+      padding: 20px 0;
+    }
   }
 
   &__logo {
@@ -14,6 +18,10 @@
 
     & > span {
       color: gray;
+
+      @include _480 {
+        display: none;
+      }
     }
   }
 

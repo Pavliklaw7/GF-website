@@ -1,0 +1,65 @@
+/* --- --- fonts --- --- */
+
+@mixin ff-Cormorant {
+  font-family: 'Cormorant', 'Times New Roman', Times, serif;
+  font-weight: 300;
+}
+
+@mixin fz-xxl {
+  font-size: 3rem;
+
+   @include _480 {
+    font-size: 2rem;
+  }
+}
+
+@mixin fz-xl {
+  font-size: 2rem;
+}
+
+@mixin fz-l {
+  font-size: 1.5rem;
+
+  @include _480 {
+    font-size: 1.2rem;
+  }
+}
+
+@mixin fz-m {
+  font-size: 1rem;
+
+  @include _480() {
+    font-size: 0.8rem;
+  }
+}
+
+@mixin fz-s {
+  font-size: 0.8rem;
+}
+
+
+/* --- --- media --- --- */
+
+@mixin _900 {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin _768 {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin _600 {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin _480 {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}

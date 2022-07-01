@@ -8,8 +8,13 @@
   width: 150px;
   border: none;
   text-align: center;
-
   cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.08);
+  } 
 
   &.primary {
     background-color: #000;

@@ -1,0 +1,31 @@
+.d-none-900 {
+  display: block !important;
+
+  @media (max-width: 900px) {
+    display: none !important;
+  }
+}
+
+.d-none-600 {
+  display: block !important;
+
+  @media (max-width: 600px) {
+    display: none !important;
+  }
+}
+
+.d-none-480 {
+  display: block !important;
+
+  @media (max-width: 480px) {
+    display: none !important;
+  }
+}
+
+.d-block-480 {
+  display: none !important;
+
+  @media (max-width: 480px) {
+    display: block !important;
+  }
+}

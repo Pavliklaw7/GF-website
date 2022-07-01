@@ -4,7 +4,7 @@
       <div class="container">
         <div class="header__inner">
           <div class="header__logo">Gapter & Franz <span>Law Firm</span></div>
-          <nav class="heder__nav nav">
+          <nav class="heder__nav nav d-none-900">
             <ul class="nav__list">
               <li class="nav__item">
                 <nuxt-link to="#" class="nav__link">Services</nuxt-link>
@@ -16,7 +16,7 @@
                 <nuxt-link to="#" class="nav__link">Blog</nuxt-link>
               </li>
               <li class="nav__item">
-                <a href="tel:+380635830168" class="nav__link btn secondary"
+                <a href="tel:+380674339373" class="nav__link btn secondary"
                   >Call Now</a
                 >
               </li>
@@ -34,14 +34,26 @@
             A long record of successfully resolving complex divorce & family law
             matters.
           </div>
-          <button class="section__btn btn primary">Book a Call</button>
+          <button class="section__btn btn primary d-none-480">
+            Book a Call
+          </button>
+
+          <img
+            src="~/assets/img/intro_img.jpeg"
+            alt="img"
+            class="main-wrapper__img"
+          />
+
+          <button class="section__btn btn primary d-block-480">
+            Book a Call
+          </button>
         </div>
       </div>
     </main>
     <img
       src="~/assets/img/intro_img.jpeg"
       alt="img"
-      class="main-wrapper__img"
+      class="main-wrapper__img d-none-480"
     />
   </div>
 </template>

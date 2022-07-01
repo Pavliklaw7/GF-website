@@ -6,23 +6,60 @@
     align-items: flex-start;
     height: 100%;
     width: 50%;
+
+    @include _768 {
+      height: 25%;
+      width: 100%;
+      min-height: 200px
+    }
+  }
+
+  &__intro-img {
+    @extend .main-wrapper__img;
+
+    display: none;
+
+    @include _600 {
+      display: block;
+      object-position: top 25%;
+    }
   }
 
   &__title {
     @include fz-xxl;
 
     margin-bottom: 25px;
+
+    @include _480 {
+      margin-bottom: 1rem;
+    }
   }
 
   &__subTitle {
     @include fz-l;
 
     margin-bottom: 20px;
+
+    @include _480 {
+      margin-bottom: 1rem;
+    }
   } 
 
   &__text {
     @include fz-m;
     
     margin-bottom: 20px;
+
+    @include _480 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__btn.btn {
+
+    @include _480 {
+      width: 100%;
+      height: 3rem;
+    }
   }
 }

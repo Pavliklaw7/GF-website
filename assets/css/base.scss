@@ -1,11 +1,17 @@
 body {
   @include ff-Cormorant;
+  overflow: hidden;
 }
 
 .container {
   max-width: 1152px;
   margin: 0 auto;
   height: 100%;
+
+  @include _900 {
+    max-width: 100%;
+    margin: 0 5%;
+  }
 }
 
 h1,
