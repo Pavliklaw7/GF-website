@@ -3,12 +3,23 @@
   height: var(--vh);
   background-color: $mainBg;
 
+  &__header {
+    display: flex;
+    align-items: center;
+    height: 10%;
+
+    @include _768 {
+      display: grid;
+    }
+  }
+
   &__section {
+    display: flex;
     height: 80%;
 
     @include _768 {
-      height: auto;
-      margin-bottom: 40px;
+      flex-direction: column;
+      height: 90%;
     }
   }
 
@@ -25,19 +36,9 @@
     @include _768 {
       position: static;
       width: 100%;
-      height: 70%;
-      min-height: 740px;
-    }
-
-    @include _600 {
-      // display: none;
+      height: calc(100% - (200px + 5rem));
+      object-position: 0 35%;
       min-height: auto;
-    }
-
-    @include _480 {
-      height: 300px;
-      object-position: 0 25%;
-      margin-bottom: 1rem;
     }
   }
 }

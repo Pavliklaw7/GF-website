@@ -5,12 +5,24 @@ body {
 
 .container {
   max-width: 1152px;
+  width: 100%;
   margin: 0 auto;
-  height: 100%;
+
+  @include _1280 {
+    margin: 0 2rem;
+  }
 
   @include _900 {
     max-width: 100%;
-    margin: 0 5%;
+  }
+
+  @include _768 {
+    height: auto;
+    width: auto;
+  }
+
+  @include _480 {
+    margin: 0 1rem;
   }
 }
 

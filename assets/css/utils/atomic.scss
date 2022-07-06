@@ -6,6 +6,30 @@
   }
 }
 
+.d-block-900 {
+  display: none !important;
+
+  @media (max-width: 900px) {
+    display: block !important;
+  }
+}
+
+.d-none-768 {
+  display: block !important;
+
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+.d-block-768 {
+  display: none !important;
+
+  @media (max-width: 768px) {
+    display: block !important;
+  }
+}
+
 .d-none-600 {
   display: block !important;
 

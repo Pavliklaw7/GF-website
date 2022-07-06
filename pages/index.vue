@@ -1,30 +1,6 @@
 <template>
   <div class="main-wrapper">
-    <header class="main-wrapper__header header">
-      <div class="container">
-        <div class="header__inner">
-          <div class="header__logo">Gapter & Franz <span>Law Firm</span></div>
-          <nav class="heder__nav nav d-none-900">
-            <ul class="nav__list">
-              <li class="nav__item">
-                <nuxt-link to="#" class="nav__link">Services</nuxt-link>
-              </li>
-              <li class="nav__item">
-                <nuxt-link to="#" class="nav__link">Pricing</nuxt-link>
-              </li>
-              <li class="nav__item">
-                <nuxt-link to="#" class="nav__link">Blog</nuxt-link>
-              </li>
-              <li class="nav__item">
-                <a href="tel:+380674339373" class="nav__link btn secondary"
-                  >Call Now</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
+    <Header />
     <main class="main-wrapper__section section">
       <div class="container">
         <div class="section__inner">
@@ -34,32 +10,31 @@
             A long record of successfully resolving complex divorce & family law
             matters.
           </div>
-          <button class="section__btn btn primary d-none-480">
+          <button class="section__btn btn primary d-none-768">
             Book a Call
           </button>
 
-          <img
+          <!-- <img
             src="~/assets/img/intro_img.jpeg"
             alt="img"
             class="main-wrapper__img"
-          />
-
-          <button class="section__btn btn primary d-block-480">
-            Book a Call
-          </button>
+          /> -->
         </div>
       </div>
+      <img
+        src="~/assets/img/intro_img.jpeg"
+        alt="img"
+        class="main-wrapper__img"
+      />
+      <button class="section__btn btn primary d-block-768">Book a Call</button>
     </main>
-    <img
-      src="~/assets/img/intro_img.jpeg"
-      alt="img"
-      class="main-wrapper__img d-none-480"
-    />
   </div>
 </template>
 
 <script>
+import Header from '../components/Header.vue';
 export default {
-  name: 'IndexPage'
+    name: "IndexPage",
+    components: { Header }
 }
 </script>

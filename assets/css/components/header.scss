@@ -1,12 +1,10 @@
 .header {
-
   &__inner {
     position: relative;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 0;
 
     @include _480 {
       padding: 20px 0;
@@ -18,11 +16,28 @@
 
     & > span {
       color: gray;
-
-      @include _480 {
-        display: none;
-      }
     }
   }
 
+  &__nav {
+    @include _900 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: $mainBg;
+      transition: transform 0.2s ease-in-out;
+      transform: translateX(-100%);
+    }
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
 }
