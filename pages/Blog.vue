@@ -1,10 +1,7 @@
 <template>
-  <div class="main-wrapper">
-    <Header />
-    <div class="main-wrapper__section section">
-      <div class="container">Blog Page</div>
-    </div>
-  </div>
+  <main class="main-wrapper__section section">
+    <div class="container">Blog Page</div>
+  </main>
 </template>
 
 <script>

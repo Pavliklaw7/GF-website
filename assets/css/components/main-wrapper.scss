@@ -40,5 +40,9 @@
       object-position: 0 35%;
       min-height: auto;
     }
+
+    @include _768 {
+      margin-bottom: 1rem;
+    }
   }
 }

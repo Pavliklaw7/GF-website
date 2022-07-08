@@ -9,8 +9,12 @@ export const getters = {
 }
 
 export const mutations = {
-  menuToggle(state) {
-    state.isMenuOpen = !state.isMenuOpen;
+  menuToggle(state, payload) {
+    if (payload) {
+      state.isMenuOpen = !state.isMenuOpen;
+    } else {
+      state.isMenuOpen = false
+    }
   }
 }
 

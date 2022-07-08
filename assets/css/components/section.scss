@@ -61,10 +61,6 @@
 
   &__btn.btn {
     @include _768 {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 1rem;
       width: auto;
       height: 3rem;
       margin: 0 2rem;

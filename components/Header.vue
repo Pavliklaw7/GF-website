@@ -6,15 +6,22 @@
           >Gapter & Franz <span>Law Firm</span></nuxt-link
         >
         <nav class="header__nav nav" :class="{ open: isMenuOpen }">
-          <ul class="nav__list" :class="$route.name != '' ? 'primary' : ''">
+          <ul
+            class="nav__list"
+            :class="$route.path != '/' ? 'primary' : ''"
+            @click="menuToggle(false)"
+          >
             <li class="nav__item">
-              <nuxt-link to="/services" class="nav__link">Services</nuxt-link>
+              <NuxtLink to="/" class="nav__link">Home</NuxtLink>
             </li>
             <li class="nav__item">
-              <nuxt-link to="/price" class="nav__link">Pricing</nuxt-link>
+              <NuxtLink to="/services" class="nav__link">Services</NuxtLink>
             </li>
             <li class="nav__item">
-              <nuxt-link to="blog" class="nav__link">Blog</nuxt-link>
+              <NuxtLink to="/price" class="nav__link">Pricing</NuxtLink>
+            </li>
+            <li class="nav__item">
+              <NuxtLink to="blog" class="nav__link">Blog</NuxtLink>
             </li>
             <li class="nav__item">
               <a href="tel:+380674339373" class="nav__link btn secondary"
@@ -26,7 +33,7 @@
         <div
           class="menu-toggle d-block-900"
           :class="{ open: isMenuOpen }"
-          @click="menuToggle()"
+          @click="menuToggle(true)"
         >
           <div class="hamburger">
             <span></span>
@@ -47,22 +54,22 @@
 import { mapMutations, mapGetters } from 'vuex'
 
 export default {
-  mounted() {
-    console.log((this.$route.name !== ''))
-  },
   computed: {
     ...mapGetters({
       isMenuOpen: 'isMenuOpen'
     }),
+    isLinkActive(route) {
+      return this.$route.path === route;
+    }
+  },
+  mounted() {
+    console.log('event', this.$event)
   },
   methods: {
     ...mapMutations({
       menuToggle: 'menuToggle'
     }),
-    isLinkActive(route) {
-      console.log('r', this.$route.name === route)
-      return this.$route.name === route;
-    }
+    
   }
 
 }

@@ -13,7 +13,7 @@
 
   &:hover,
   &:focus {
-    transform: scale(1.08);
+    transform: scale($hoverScaleValue);
   } 
 
   &.primary {

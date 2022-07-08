@@ -1,10 +1,13 @@
 <template>
-  <Nuxt />
+  <div class="main-wrapper">
+    <Header />
+    <Nuxt />
+  </div>
 </template>
 
 <script>
 export default {
- mounted() {
+  mounted() {
     setTimeout(() => {
       window.addEventListener('resize', () => {
         setTimeout(() => {
@@ -23,6 +26,7 @@ export default {
       document.documentElement.style.setProperty('--vh', `${vh}px`)
 
   },
+  
   methods: {
     fixheight() {
       const vh = window.innerHeight
@@ -33,11 +37,7 @@ export default {
 </script>
 
 <style>
-/* .nav__item:not(:has(a)) {
-  display: none;
-}
-
 a.nuxt-link-exact-active {
   display: none;
-} */
+}
 </style>
