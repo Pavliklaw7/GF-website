@@ -2,17 +2,19 @@
   <header class="main-wrapper__header header">
     <div class="container">
       <div class="header__inner">
-        <div class="header__logo">Gapter & Franz <span>Law Firm</span></div>
+        <nuxt-link to="/" class="header__logo"
+          >Gapter & Franz <span>Law Firm</span></nuxt-link
+        >
         <nav class="header__nav nav" :class="{ open: isMenuOpen }">
-          <ul class="nav__list">
+          <ul class="nav__list" :class="$route.name != '' ? 'primary' : ''">
             <li class="nav__item">
-              <nuxt-link to="#" class="nav__link">Services</nuxt-link>
+              <nuxt-link to="/services" class="nav__link">Services</nuxt-link>
             </li>
             <li class="nav__item">
-              <nuxt-link to="#" class="nav__link">Pricing</nuxt-link>
+              <nuxt-link to="/price" class="nav__link">Pricing</nuxt-link>
             </li>
             <li class="nav__item">
-              <nuxt-link to="#" class="nav__link">Blog</nuxt-link>
+              <nuxt-link to="blog" class="nav__link">Blog</nuxt-link>
             </li>
             <li class="nav__item">
               <a href="tel:+380674339373" class="nav__link btn secondary"
@@ -45,6 +47,9 @@
 import { mapMutations, mapGetters } from 'vuex'
 
 export default {
+  mounted() {
+    console.log((this.$route.name !== ''))
+  },
   computed: {
     ...mapGetters({
       isMenuOpen: 'isMenuOpen'
@@ -53,7 +58,11 @@ export default {
   methods: {
     ...mapMutations({
       menuToggle: 'menuToggle'
-    })
+    }),
+    isLinkActive(route) {
+      console.log('r', this.$route.name === route)
+      return this.$route.name === route;
+    }
   }
 
 }

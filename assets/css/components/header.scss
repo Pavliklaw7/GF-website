@@ -14,8 +14,16 @@
   &__logo {
     @include fz-l;
 
+    text-decoration: none;
+    color: #000;
+    display: block !important;
+
     & > span {
       color: gray;
+
+      @include _333 {
+        display: none;
+      }
     }
   }
 

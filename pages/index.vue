@@ -13,12 +13,6 @@
           <button class="section__btn btn primary d-none-768">
             Book a Call
           </button>
-
-          <!-- <img
-            src="~/assets/img/intro_img.jpeg"
-            alt="img"
-            class="main-wrapper__img"
-          /> -->
         </div>
       </div>
       <img

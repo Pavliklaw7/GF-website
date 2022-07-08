@@ -69,3 +69,10 @@
     @content;
   }
 }
+
+@mixin _333 {
+  @media screen and (max-width: 333px) {
+    @content;
+
+  }
+}

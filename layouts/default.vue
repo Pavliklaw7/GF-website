@@ -33,4 +33,11 @@ export default {
 </script>
 
 <style>
+/* .nav__item:not(:has(a)) {
+  display: none;
+}
+
+a.nuxt-link-exact-active {
+  display: none;
+} */
 </style>
