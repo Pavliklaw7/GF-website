@@ -3,6 +3,14 @@
   height: var(--vh);
   background-color: $mainBg;
 
+  &.blured {
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);  
+  }
+
   &__header {
     display: flex;
     align-items: center;
@@ -44,5 +52,15 @@
     @include _768 {
       margin-bottom: 1rem;
     }
+  }
+
+  &__popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    transform: translate(-50%, -50%);
   }
 }

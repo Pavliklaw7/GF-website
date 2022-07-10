@@ -1,0 +1,28 @@
+$formBorder: 1px solid lightgray;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    & > input {
+      flex: 0 1 49%;
+    }
+  }
+
+  &__input {
+    border: $formBorder;
+    text-transform: uppercase;
+    color: lightgray;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+
+  &__textarea {
+    border: $formBorder;
+  }
+}
