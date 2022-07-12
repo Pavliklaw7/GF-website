@@ -94,4 +94,25 @@
       background-color: #000;
     }
   }
+
+  &__link {
+    display: block;
+    font-weight: 900;
+    color: gray;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__link.nuxt-link-exact-active {
+    display: block;
+    color: #000;
+  }
+
+  &__with-aside {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-gap: 0 4rem;
+  }
 }
