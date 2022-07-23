@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-height: 100px;
 
     @include _480 {
       padding: 20px 0;

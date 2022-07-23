@@ -1,6 +1,12 @@
 body {
   @include ff-Cormorant;
   overflow: hidden;
+
+  &.overflowed {
+    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 
 .container {

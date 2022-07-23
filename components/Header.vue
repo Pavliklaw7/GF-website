@@ -12,17 +12,16 @@
             @click="menuToggle(false)"
           >
             <li class="nav__item">
-              <NuxtLink to="/" class="nav__link">Home</NuxtLink>
+              <NuxtLink to="/services/business" class="nav__link"
+                >Services</NuxtLink
+              >
             </li>
-            <li class="nav__item">
-              <NuxtLink to="/services" class="nav__link">Services</NuxtLink>
-            </li>
-            <li class="nav__item">
+            <!-- <li class="nav__item">
               <NuxtLink to="/price" class="nav__link">Pricing</NuxtLink>
-            </li>
-            <li class="nav__item">
+            </li> -->
+            <!-- <li class="nav__item">
               <NuxtLink to="blog" class="nav__link">Blog</NuxtLink>
-            </li>
+            </li> -->
             <li class="nav__item">
               <a href="tel:+380674339373" class="nav__link btn secondary"
                 >Call Now</a

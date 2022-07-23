@@ -11,6 +11,11 @@
     filter: blur(2px);  
   }
 
+  &.fluidH {
+    height: auto;
+    min-height: var(--vh);
+  }
+
   &__header {
     display: flex;
     align-items: center;

@@ -1,8 +1,15 @@
 <template>
   <div>
-    <div class="main-wrapper" :class="{ blured: isContactPopupOpen }">
+    <div
+      class="main-wrapper"
+      :class="{
+        blured: isContactPopupOpen,
+        fluidH: $route.path != '/',
+      }"
+    >
       <Header />
       <Nuxt />
+      <Footer v-if="path !== '/'" />
     </div>
     <ContactPopup v-if="isContactPopupOpen" />
     <div class="layer" v-if="isContactPopupOpen"></div>
@@ -16,9 +23,14 @@ export default {
   computed: {
     ...mapGetters({
       isContactPopupOpen: 'isContactPopupOpen'
-    })
+    }),
+    path() {
+      return this.$route.fullPath;
+    }
   },
-    mounted() {
+  mounted() {
+    console.log(this.$route);
+
         setTimeout(() => {
             window.addEventListener("resize", () => {
                 setTimeout(() => {
@@ -46,7 +58,4 @@ export default {
 </script>
 
 <style>
-a.nuxt-link-exact-active {
-  display: none;
-}
 </style>

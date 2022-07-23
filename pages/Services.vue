@@ -11,6 +11,10 @@
           </NuxtLink>
         </aside>
         <main>
+          <p class="section__text">
+            Нижче ви можете ознайомитись зі списком послуг, які надаються по
+            всій території України.
+          </p>
           <NuxtChild />
         </main>
       </div>
@@ -20,6 +24,9 @@
 
 <script>
 export default {
+  mounted() {
+    document.body.classList.add('overflowed');
+  }
 
 }
 </script>
