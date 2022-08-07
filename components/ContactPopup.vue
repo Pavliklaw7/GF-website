@@ -1,6 +1,6 @@
 <template>
   <div class="main-wrapper__popup popup">
-    <div class="popup__close" @click="contactPopupClose()">
+    <div class="popup__close" @click="contactPopupClose">
       <img
         src="@/assets/img/ui/cross_black.svg"
         alt="cross"
@@ -9,12 +9,15 @@
     </div>
     <div v-if="!success" class="popup__inner">
       <p class="popup__text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora sit
-        beatae officiis est modi. Minus magnam explicabo odit perferendis iure
-        impedit consequuntur doloremque tempora accusamus exercitationem. Quod
-        nam sequi mollitia!
+        Шановний клієнте, залишь свій запит і я обов'язково зв'яжусь с тобою
+        найближчим часом для обговорення та вирішення твого питання.
       </p>
-      <form action="#" class="popup__form form" @submit.prevent="postData()">
+      <form
+        ref="form"
+        action="#"
+        class="popup__form form"
+        @submit.prevent="postData()"
+      >
         <div class="form__row">
           <input
             v-model="name"
@@ -36,7 +39,7 @@
           placeholder="Телефон"
         />
         <textarea
-          v-model="description"
+          v-model="propModel"
           class="form__textarea"
           name="description"
           placeholder="Опишіть своє питання"
@@ -51,7 +54,10 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import emailjs from '@emailjs/browser';
+
+import { mapMutations, mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
@@ -62,11 +68,20 @@ export default {
       success: false
     }
   },
+  computed: {
+    ...mapGetters({
+      getContactPopupDescr: 'getContactPopupDescr',
+    }),
+    propModel: {
+      get () { return this.getContactPopupDescr },
+      set (value) { this.$emit('update:prop', value) },
+    },
+  },
   methods: {
     ...mapMutations({
       contactPopupClose: 'contactPopupClose'
     }),
-    async postData() {
+    postData() {
       const data = {
         name: this.name,
         email: this.email,
@@ -74,23 +89,23 @@ export default {
         description: this.description,
       }
 
+      console.log(data);
+    },
+    sendEmail() {
       try {
-            // send a POST request to create a new entry
-            const msgs = await fetch(`${this.$store.state.apiUrl}/clients`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({data})
-            })
-        if (msgs) {
-          this.success = true
-          console.log(msgs)
-        } 
-          } catch (error) {
-            console.log(error);
-          }
-    }
+        emailjs.sendForm('service_rwlaglf', 'template_mr0xn0f', this.$refs.form,
+          'T1s9GAiwYR1Hht8DD').then((result) => {
+            console.log('SUCCESS!', result.text);
+        }, (error) => {
+            console.log('FAILED...', error.text);
+        });
+
+      } catch (error) {
+        console.log({ error })
+      }
+
+      this.contactPopupClose();
+    },
   }
 }
 </script>

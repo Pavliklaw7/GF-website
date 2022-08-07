@@ -15,12 +15,14 @@
       color: #000;
     }
   }
+  
+  &__item a {
+    @include fz-m;
 
-  &__item:not(:first-child) a {
-    margin-left: 30px;
+    margin-right: 30px;
 
     @include _900 {
-      margin-left: 0;
+      margin-right: 0;
     }
   }
 

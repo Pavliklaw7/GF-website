@@ -28,6 +28,10 @@
 @mixin fz-m {
   font-size: 1rem;
 
+  @include _768 {
+    font-size: 1.5rem;
+  }
+
   @include _480() {
     font-size: 0.8rem;
   }

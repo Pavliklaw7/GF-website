@@ -5,14 +5,15 @@
       :class="{
         blured: isContactPopupOpen,
         fluidH: $route.path != '/',
+        fixed: isMenuOpen,
       }"
     >
-      <Header />
+      <TheHeader />
       <Nuxt />
-      <Footer v-if="path !== '/'" />
+      <TheFooter v-if="path !== '/'" />
     </div>
-    <ContactPopup v-if="isContactPopupOpen" />
-    <div class="layer" v-if="isContactPopupOpen"></div>
+    <ContactPopup v-if="isContactPopupOpen" :value="''" />
+    <div v-if="isContactPopupOpen" class="layer"></div>
   </div>
 </template>
 
@@ -22,32 +23,40 @@ import { mapGetters } from 'vuex';
 export default {
   computed: {
     ...mapGetters({
-      isContactPopupOpen: 'isContactPopupOpen'
+      isMenuOpen: 'isMenuOpen',
+      isContactPopupOpen: 'isContactPopupOpen',
+
     }),
     path() {
       return this.$route.fullPath;
     }
   },
-  mounted() {
-    console.log(this.$route);
+    watch: {
+      isContactPopupOpen() {
+      if (this.isContactPopupOpen) {
+        document.documentElement.style.overflow = 'hidden'
+        return
+      }
 
-        setTimeout(() => {
-            window.addEventListener("resize", () => {
-                setTimeout(() => {
-                    this.fixheight();
-                }, 200);
-            });
-            window.addEventListener("orientationchange", () => {
-                setTimeout(() => {
-                    this.fixheight();
-                }, 200);
-            });
-        }, 100);
-        const vh = window.innerHeight;
-        document.documentElement.style.setProperty("--vh", `${vh}px`);
+      document.documentElement.style.overflow = 'auto'
+    }
   },
-  
-    
+  mounted() {
+    setTimeout(() => {
+        window.addEventListener("resize", () => {
+            setTimeout(() => {
+                this.fixheight();
+            }, 200);
+        });
+        window.addEventListener("orientationchange", () => {
+            setTimeout(() => {
+                this.fixheight();
+            }, 200);
+        });
+    }, 100);
+    const vh = window.innerHeight;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  },
     methods: {
         fixheight() {
             const vh = window.innerHeight;

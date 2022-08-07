@@ -13,19 +13,17 @@
           >
             <li class="nav__item">
               <NuxtLink to="/services/business" class="nav__link"
-                >Services</NuxtLink
+                >Послуги</NuxtLink
               >
             </li>
-            <!-- <li class="nav__item">
-              <NuxtLink to="/price" class="nav__link">Pricing</NuxtLink>
-            </li> -->
-            <!-- <li class="nav__item">
-              <NuxtLink to="blog" class="nav__link">Blog</NuxtLink>
-            </li> -->
             <li class="nav__item">
-              <a href="tel:+380674339373" class="nav__link btn secondary"
-                >Call Now</a
+              <nuxt-link
+                to="/contacts"
+                class="header__btn btn"
+                :class="$route.path !== '/' ? 'primary' : 'secondary'"
               >
+                Контакти
+              </nuxt-link>
             </li>
           </ul>
         </nav>
@@ -53,6 +51,9 @@
 import { mapMutations, mapGetters } from 'vuex'
 
 export default {
+  mounted() {
+    console.log(this.$)
+  },
   computed: {
     ...mapGetters({
       isMenuOpen: 'isMenuOpen'
@@ -60,9 +61,6 @@ export default {
     isLinkActive(route) {
       return this.$route.path === route;
     }
-  },
-  mounted() {
-    console.log('event', this.$event)
   },
   methods: {
     ...mapMutations({

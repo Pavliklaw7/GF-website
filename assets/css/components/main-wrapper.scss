@@ -16,6 +16,10 @@
     min-height: var(--vh);
   }
 
+  &.fixed {
+    overflow: hidden;
+  }
+
   &__header {
     display: flex;
     align-items: center;
@@ -29,6 +33,7 @@
   &__section {
     display: flex;
     height: 80%;
+    margin-bottom: 1.5rem;
 
     @include _768 {
       flex-direction: column;
@@ -60,7 +65,7 @@
   }
 
   &__popup {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     right: 0;

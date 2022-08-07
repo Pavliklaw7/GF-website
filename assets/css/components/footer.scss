@@ -1,0 +1,36 @@
+.footer {
+  padding: 2rem 0;
+  background-color: #000000d4;
+  color: #fff;
+
+  &__inner {
+    @include fz-s;
+    @include ff-Cormorant;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__col:first-child {
+    align-items: flex-start;
+  }
+
+  &__col:last-child {
+    align-items: flex-end;
+  }
+
+  &__link {
+    margin-bottom: 0.5rem;
+  }
+
+  &__address p {
+    line-height: 1.3rem;
+  }
+  
+}

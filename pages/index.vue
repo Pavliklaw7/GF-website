@@ -21,7 +21,7 @@
     <button
       type="button"
       class="section__btn btn primary d-block-768"
-      @click="contactPopupOpen()"
+      @click="contactPopupOpen('test')"
     >
       Book a Call
     </button>
