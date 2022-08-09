@@ -31,6 +31,8 @@
 <script>
 import { mapMutations } from 'vuex'
 
+/* some changes string */
+
 export default {
   name: "IndexPage",
   watch: {
