@@ -18,6 +18,7 @@
 </template>
 
 <script>
+/* some-changes */
 import { mapGetters } from 'vuex';
 
 export default {
