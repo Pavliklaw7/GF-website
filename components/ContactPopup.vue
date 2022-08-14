@@ -1,55 +1,60 @@
 <template>
-  <div class="main-wrapper__popup popup">
-    <div class="popup__close" @click="contactPopupClose">
-      <img
-        src="@/assets/img/ui/cross_black.svg"
-        alt="cross"
-        class="popup__close-img"
-      />
-    </div>
-    <div v-if="!success" class="popup__inner">
-      <p class="popup__text">
-        Шановний клієнте, залишь свій запит і я обов'язково зв'яжусь с тобою
-        найближчим часом для обговорення та вирішення твого питання.
-      </p>
-      <form
-        ref="form"
-        action="#"
-        class="popup__form form"
-        @submit.prevent="postData()"
-      >
-        <div class="form__row">
+  <div>
+    <div class="main-wrapper__popup popup" :class="{ active: active }">
+      <div class="popup__close" @click="contactPopupClose">
+        <img
+          src="@/assets/img/ui/cross_black.svg"
+          alt="cross"
+          class="popup__close-img"
+        />
+      </div>
+      <div v-if="!success" class="popup__inner">
+        <p class="popup__text">
+          Шановний клієнте, залишь свій запит і я обов'язково зв'яжусь с тобою
+          найближчим часом для обговорення та вирішення твого питання.
+        </p>
+        <form
+          ref="form"
+          action="#"
+          class="popup__form form"
+          @submit.prevent="postData()"
+        >
+          <div class="form__row">
+            <input
+              v-model="name"
+              type="text"
+              class="form__input"
+              placeholder="Ім'я"
+            />
+            <input
+              v-model="email"
+              type="email"
+              class="form__input"
+              placeholder="Єл. пошта"
+            />
+          </div>
           <input
-            v-model="name"
+            v-model="phone"
             type="text"
             class="form__input"
-            placeholder="Ім'я"
+            placeholder="Телефон"
           />
-          <input
-            v-model="email"
-            type="email"
-            class="form__input"
-            placeholder="Єл. пошта"
-          />
-        </div>
-        <input
-          v-model="phone"
-          type="text"
-          class="form__input"
-          placeholder="Телефон"
-        />
-        <textarea
-          v-model="propModel"
-          class="form__textarea"
-          name="description"
-          placeholder="Опишіть своє питання"
-        ></textarea>
-        <button class="form__btn btn primary" type="submit">Відправити</button>
-      </form>
+          <textarea
+            v-model="propModel"
+            class="form__textarea"
+            name="description"
+            placeholder="Опишіть своє питання"
+          ></textarea>
+          <button class="form__btn btn primary" type="submit">
+            Відправити
+          </button>
+        </form>
+      </div>
+      <div v-else class="popup__inner">
+        <p class="popup__text">success</p>
+      </div>
     </div>
-    <div v-else class="popup__inner">
-      <p class="popup__text">success</p>
-    </div>
+    <div :class="{ active: active }" class="layer"></div>
   </div>
 </template>
 
@@ -59,6 +64,12 @@ import emailjs from '@emailjs/browser';
 import { mapMutations, mapGetters } from 'vuex'
 
 export default {
+  props: {
+    active: {
+      type: Boolean,
+      required: true
+    }
+  },
   data() {
     return {
       name: '',

@@ -17,13 +17,14 @@
               >
             </li>
             <li class="nav__item">
-              <nuxt-link
-                to="/contacts"
+              <button
+                type="button"
                 class="header__btn btn"
                 :class="$route.path !== '/' ? 'primary' : 'secondary'"
+                @click="contactPopupOpen()"
               >
                 Контакти
-              </nuxt-link>
+              </button>
             </li>
           </ul>
         </nav>
@@ -64,9 +65,10 @@ export default {
   },
   methods: {
     ...mapMutations({
-      menuToggle: 'menuToggle'
+      menuToggle: 'menuToggle',
+      contactPopupOpen: 'contactPopupOpen',
+
     }),
-    
   }
 
 }
