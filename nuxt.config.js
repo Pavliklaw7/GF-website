@@ -2,7 +2,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   target: 'static',
   router: {
-    base: '/GF-website/'
+    base: '/'
   },
   head: {
     title: 'Gapter & Franz Law firm',
@@ -12,8 +12,15 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'og:title', property: 'og:title', content: "Gapter & Franz Law Firm" },
+      { hid: 'og:description', property: 'og:description', content: 'Alexander Pavlik | Your choice, my priority!' },
+      { hid: 'og:image', property: 'og:image', content: process.env.baseUrl + 'preview.png' },
+
+      // twitter card
+      { hid: "twitter:title", name: "twitter:title", content: 'Gapter & Franz Law Firm' },
+      { hid: 'twitter:description', name: 'twitter:description', content: 'Alexander Pavlik | Your choice, my priority!' },
+      { hid: "twitter:image", name: "twitter:image", content: process.env.baseUrl + 'preview.png' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' },
@@ -45,5 +52,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+  publicRuntimeConfig: { baseURL: process.env.NUXT_BASE_URL }
 }

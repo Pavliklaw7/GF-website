@@ -83,6 +83,7 @@
     margin-left: 1em;
     padding-right: 1.3rem;
     border-bottom: 1px solid #000;
+    cursor: pointer;
 
     &:not(:last-child) {
       margin-bottom: 1rem;
@@ -117,6 +118,7 @@
     @include fz-m;
     
     display: flex;
+    justify-content: center;
     align-items: center;
     font-weight: 900;
     color: $mainBg;
@@ -141,7 +143,6 @@
   }
 
   &__link.nuxt-link-exact-active {
-    display: block;
     background-color: #000;
   }
 

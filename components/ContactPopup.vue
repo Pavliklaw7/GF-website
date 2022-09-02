@@ -1,55 +1,64 @@
 <template>
-  <div class="main-wrapper__popup popup">
-    <div class="popup__close" @click="contactPopupClose">
-      <img
-        src="@/assets/img/ui/cross_black.svg"
-        alt="cross"
-        class="popup__close-img"
-      />
-    </div>
-    <div v-if="!success" class="popup__inner">
-      <p class="popup__text">
-        Шановний клієнте, залишь свій запит і я обов'язково зв'яжусь с тобою
-        найближчим часом для обговорення та вирішення твого питання.
-      </p>
-      <form
-        ref="form"
-        action="#"
-        class="popup__form form"
-        @submit.prevent="postData()"
-      >
-        <div class="form__row">
-          <input
-            v-model="name"
-            type="text"
-            class="form__input"
-            placeholder="Ім'я"
-          />
-          <input
-            v-model="email"
-            type="email"
-            class="form__input"
-            placeholder="Єл. пошта"
-          />
-        </div>
-        <input
-          v-model="phone"
-          type="text"
-          class="form__input"
-          placeholder="Телефон"
+  <div>
+    <div class="main-wrapper__popup popup" :class="{ active: active }">
+      <div class="popup__close" @click="contactPopupClose">
+        <img
+          src="@/assets/img/ui/cross_black.svg"
+          alt="cross"
+          class="popup__close-img"
         />
-        <textarea
-          v-model="propModel"
-          class="form__textarea"
-          name="description"
-          placeholder="Опишіть своє питання"
-        ></textarea>
-        <button class="form__btn btn primary" type="submit">Відправити</button>
-      </form>
+      </div>
+      <div v-if="!success" class="popup__inner">
+        <p class="popup__text">
+          Шановний клієнте, залишь свій запит і я обов'язково зв'яжусь с тобою
+          найближчим часом для обговорення та вирішення твого питання.
+        </p>
+        <form
+          ref="form"
+          action="#"
+          class="popup__form form"
+          @submit.prevent="sendEmail"
+        >
+          <div class="form__row">
+            <input
+              name="name"
+              v-model="name"
+              type="text"
+              class="form__input"
+              placeholder="Ім'я"
+            />
+            <input
+              name="email"
+              v-model="email"
+              type="email"
+              class="form__input"
+              placeholder="Єл. пошта"
+            />
+          </div>
+          <input
+            name="phone"
+            v-model="phone"
+            type="tel"
+            class="form__input"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            placeholder="Телефон"
+          />
+          <textarea
+            v-model="propModel"
+            class="form__textarea"
+            name="description"
+            placeholder="Опишіть своє питання"
+          ></textarea>
+          <button class="form__btn btn primary" type="submit">
+            Відправити
+          </button>
+        </form>
+      </div>
+      <div v-else class="popup__inner">
+        <p class="popup__text">success</p>
+      </div>
     </div>
-    <div v-else class="popup__inner">
-      <p class="popup__text">success</p>
-    </div>
+    <div :class="{ active: active }" class="layer"></div>
   </div>
 </template>
 
@@ -59,6 +68,12 @@ import emailjs from '@emailjs/browser';
 import { mapMutations, mapGetters } from 'vuex'
 
 export default {
+  props: {
+    active: {
+      type: Boolean,
+      required: true
+    }
+  },
   data() {
     return {
       name: '',
@@ -77,27 +92,26 @@ export default {
       set (value) { this.$emit('update:prop', value) },
     },
   },
+  created() {
+    console.log('emailjs', emailjs)
+  },
   methods: {
     ...mapMutations({
       contactPopupClose: 'contactPopupClose'
     }),
-    postData() {
-      const data = {
-        name: this.name,
-        email: this.email,
-        phone: this.phone,
-        description: this.description,
-      }
-
-      console.log(data);
+    resetFormInputs() {
+      this.name = ''
+      this.email = ''
+      this.phone = ''
+      this.description = ''
     },
     sendEmail() {
       try {
-        emailjs.sendForm('service_rwlaglf', 'template_mr0xn0f', this.$refs.form,
-          'T1s9GAiwYR1Hht8DD').then((result) => {
-            console.log('SUCCESS!', result.text);
+        emailjs.sendForm('service_rwlaglf', 'template_znxg523', this.$refs.form, 'T1s9GAiwYR1Hht8DD')
+          .then((response) => {
+            console.log('SUCCESS!',response.status, response.text);
         }, (error) => {
-            console.log('FAILED...', error.text);
+            console.log('FAILED...', error);
         });
 
       } catch (error) {
@@ -105,6 +119,7 @@ export default {
       }
 
       this.contactPopupClose();
+      this.resetFormInputs()
     },
   }
 }

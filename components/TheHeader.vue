@@ -11,19 +11,20 @@
             :class="$route.path != '/' ? 'primary' : ''"
             @click="menuToggle(false)"
           >
-            <li class="nav__item">
+            <!-- <li class="nav__item">
               <NuxtLink to="/services/business" class="nav__link"
                 >Послуги</NuxtLink
               >
-            </li>
+            </li> -->
             <li class="nav__item">
-              <nuxt-link
-                to="/contacts"
+              <NuxtLink
+                :to="$route.path !== '/' ? '/' : '/services/business'"
+                type="button"
                 class="header__btn btn"
                 :class="$route.path !== '/' ? 'primary' : 'secondary'"
               >
-                Контакти
-              </nuxt-link>
+                {{ $route.path !== '/' ? 'Головна' : 'Послуги' }}
+              </NuxtLink>
             </li>
           </ul>
         </nav>
@@ -64,9 +65,10 @@ export default {
   },
   methods: {
     ...mapMutations({
-      menuToggle: 'menuToggle'
+      menuToggle: 'menuToggle',
+      contactPopupOpen: 'contactPopupOpen',
+
     }),
-    
   }
 
 }

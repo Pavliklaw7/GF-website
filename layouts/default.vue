@@ -12,8 +12,7 @@
       <Nuxt />
       <TheFooter v-if="path !== '/'" />
     </div>
-    <ContactPopup v-if="isContactPopupOpen" :value="''" />
-    <div v-if="isContactPopupOpen" class="layer"></div>
+    <ContactPopup :active="isContactPopupOpen" :value="''" />
   </div>
 </template>
 
