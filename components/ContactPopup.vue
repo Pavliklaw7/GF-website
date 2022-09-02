@@ -17,16 +17,18 @@
           ref="form"
           action="#"
           class="popup__form form"
-          @submit.prevent="postData()"
+          @submit.prevent="sendEmail"
         >
           <div class="form__row">
             <input
+              name="name"
               v-model="name"
               type="text"
               class="form__input"
               placeholder="Ім'я"
             />
             <input
+              name="email"
               v-model="email"
               type="email"
               class="form__input"
@@ -34,9 +36,11 @@
             />
           </div>
           <input
+            name="phone"
             v-model="phone"
-            type="text"
+            type="tel"
             class="form__input"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             placeholder="Телефон"
           />
           <textarea
@@ -88,27 +92,26 @@ export default {
       set (value) { this.$emit('update:prop', value) },
     },
   },
+  created() {
+    console.log('emailjs', emailjs)
+  },
   methods: {
     ...mapMutations({
       contactPopupClose: 'contactPopupClose'
     }),
-    postData() {
-      const data = {
-        name: this.name,
-        email: this.email,
-        phone: this.phone,
-        description: this.description,
-      }
-
-      console.log(data);
+    resetFormInputs() {
+      this.name = ''
+      this.email = ''
+      this.phone = ''
+      this.description = ''
     },
     sendEmail() {
       try {
-        emailjs.sendForm('service_rwlaglf', 'template_mr0xn0f', this.$refs.form,
-          'T1s9GAiwYR1Hht8DD').then((result) => {
-            console.log('SUCCESS!', result.text);
+        emailjs.sendForm('service_rwlaglf', 'template_znxg523', this.$refs.form, 'T1s9GAiwYR1Hht8DD')
+          .then((response) => {
+            console.log('SUCCESS!',response.status, response.text);
         }, (error) => {
-            console.log('FAILED...', error.text);
+            console.log('FAILED...', error);
         });
 
       } catch (error) {
@@ -116,6 +119,7 @@ export default {
       }
 
       this.contactPopupClose();
+      this.resetFormInputs()
     },
   }
 }

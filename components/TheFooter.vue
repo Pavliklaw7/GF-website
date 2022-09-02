@@ -9,8 +9,7 @@
           <nuxt-link to="/services/person" class="footer__link"
             >Фіз особам</nuxt-link
           >
-          <nuxt-link to="/contacts" class="footer__link">Контакти</nuxt-link>
-          <nuxt-link to="/privacy-policy" class="footer__link"
+          <nuxt-link to="/privacyPolicy" class="footer__link"
             >Privacy Policy</nuxt-link
           >
         </div>
@@ -19,12 +18,20 @@
             <p>Україна, м. Київ</p>
             <p>вул. Саксаганського, буд. 37К</p>
           </div>
-          <a href="" class="footer__link">Тел: 02 6279 4233</a>
-          <a href="" class="footer__link">E-mail: info@aulich.com.au</a>
+          <a href="tel:+380674339373" class="footer__link"
+            >Тел: +38(067)433-93-73</a
+          >
+          <a href="mailto:gapter-franz@ukr.net" class="footer__link"
+            >E-mail: gapter-franz@ukr.net</a
+          >
         </div>
         <div class="footer__col">
-          <a href="#" class="footer__link">facebook</a>
-          <a href="#" class="footer__link">instagram</a>
+          <a href="#" class="footer__link">
+            <img src="@/assets/img/fb.svg" alt="fb" />
+          </a>
+          <a href="#" class="footer__link">
+            <img src="@/assets/img/insta.svg" alt="instagramm" />
+          </a>
         </div>
       </div>
     </div>

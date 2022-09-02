@@ -12,8 +12,14 @@
   }
 
   &.fluidH {
+    display: flex;
+    flex-direction: column;
     height: auto;
     min-height: var(--vh);
+
+    .main-wrapper__section {
+      flex: 1;
+    }
   }
 
   &.fixed {
@@ -23,7 +29,7 @@
   &__header {
     display: flex;
     align-items: center;
-    height: 10%;
+    height: 100px;
 
     @include _768 {
       display: grid;
@@ -72,7 +78,7 @@
     bottom: 0;
     z-index: 20;
     transform: translate(100%, -50%);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.9s ease-in-out;
 
 
     &.active {

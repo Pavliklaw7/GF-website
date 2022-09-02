@@ -11,20 +11,20 @@
             :class="$route.path != '/' ? 'primary' : ''"
             @click="menuToggle(false)"
           >
-            <li class="nav__item">
+            <!-- <li class="nav__item">
               <NuxtLink to="/services/business" class="nav__link"
                 >Послуги</NuxtLink
               >
-            </li>
+            </li> -->
             <li class="nav__item">
-              <button
+              <NuxtLink
+                :to="$route.path !== '/' ? '/' : '/services/business'"
                 type="button"
                 class="header__btn btn"
                 :class="$route.path !== '/' ? 'primary' : 'secondary'"
-                @click="contactPopupOpen()"
               >
-                Контакти
-              </button>
+                {{ $route.path !== '/' ? 'Головна' : 'Послуги' }}
+              </NuxtLink>
             </li>
           </ul>
         </nav>
