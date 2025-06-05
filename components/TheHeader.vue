@@ -16,7 +16,7 @@
                 >Послуги</NuxtLink
               >
             </li> -->
-            <li class="nav__item">
+            <!-- <li class="nav__item">
               <NuxtLink
                 :to="$route.path !== '/' ? '/' : '/services/business'"
                 type="button"
@@ -25,10 +25,10 @@
               >
                 {{ $route.path !== '/' ? 'Головна' : 'Послуги' }}
               </NuxtLink>
-            </li>
+            </li> -->
           </ul>
         </nav>
-        <div
+        <!-- <div
           class="menu-toggle d-block-900"
           :class="{ open: isMenuOpen }"
           @click="menuToggle(true)"
@@ -42,7 +42,7 @@
             <span></span>
             <span></span>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </header>

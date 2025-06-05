@@ -5,12 +5,11 @@
     justify-content: center;
     align-items: flex-start;
     height: 100%;
-    width: 50%;
 
     @include _768 {
       height: 25%;
       width: 100%;
-      min-height: 200px
+      min-height: 200px;
     }
   }
 
@@ -43,11 +42,11 @@
     @include _480 {
       margin-bottom: 1rem;
     }
-  } 
+  }
 
   &__text {
     @include fz-m;
-    
+
     margin-bottom: 20px;
 
     @include _768 {
@@ -64,7 +63,7 @@
     @include _768 {
       width: auto;
       height: 3rem;
-      margin: 0 2rem;
+      margin: 2rem;
     }
 
     @include _480 {
@@ -110,13 +109,13 @@
       background-repeat: no-repeat;
       width: 1em;
       height: 1rem;
-      transform: rotate(180deg)
+      transform: rotate(180deg);
     }
   }
 
   &__link {
     @include fz-m;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;

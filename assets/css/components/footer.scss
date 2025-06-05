@@ -1,5 +1,5 @@
 .footer {
-  padding: 2rem 0;
+  padding: 0.5rem 0;
   background-color: #000000d4;
   color: #fff;
 
@@ -9,12 +9,18 @@
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    align-items: center;
   }
 
   &__col {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+
+    & > div:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
 
   &__col:first-child {
@@ -25,12 +31,8 @@
     align-items: flex-end;
   }
 
-  &__link {
-    margin-bottom: 0.5rem;
-  }
-
   &__address p {
+    display: flex;
     line-height: 1.3rem;
   }
-  
 }

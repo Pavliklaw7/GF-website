@@ -15,32 +15,32 @@
         </p>
         <form
           ref="form"
-          action="#"
           class="popup__form form"
+          action="https://formsubmit.co/pavliklaw7@gmail.com"
+          method="POST"
           @submit.prevent="sendEmail"
         >
           <div class="form__row">
             <input
-              name="name"
               v-model="name"
+              name="name"
               type="text"
               class="form__input"
               placeholder="Ім'я"
             />
             <input
-              name="email"
               v-model="email"
+              name="email"
               type="email"
               class="form__input"
               placeholder="Єл. пошта"
             />
           </div>
           <input
-            name="phone"
             v-model="phone"
+            name="phone"
             type="tel"
             class="form__input"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             placeholder="Телефон"
           />
           <textarea
@@ -106,17 +106,17 @@ export default {
       this.description = ''
     },
     sendEmail() {
-      try {
-        emailjs.sendForm('service_rwlaglf', 'template_znxg523', this.$refs.form, 'T1s9GAiwYR1Hht8DD')
-          .then((response) => {
-            console.log('SUCCESS!',response.status, response.text);
-        }, (error) => {
-            console.log('FAILED...', error);
-        });
+      // try {
+      //   emailjs.sendForm('service_rwlaglf', 'template_znxg523', this.$refs.form, 'T1s9GAiwYR1Hht8DD')
+      //     .then((response) => {
+      //       console.log('SUCCESS!',response.status, response.text);
+      //   }, (error) => {
+      //       console.log('FAILED...', error);
+      //   });
 
-      } catch (error) {
-        console.log({ error })
-      }
+      // } catch (error) {
+      //   console.log({ error })
+      // }
 
       this.contactPopupClose();
       this.resetFormInputs()
