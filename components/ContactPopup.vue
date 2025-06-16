@@ -22,14 +22,14 @@
         >
           <div class="form__row">
             <input
-              v-model="name"
+              v-model="form.name"
               name="name"
               type="text"
               class="form__input"
               placeholder="Ім'я"
             />
             <input
-              v-model="email"
+              v-model="form.email"
               name="email"
               type="email"
               class="form__input"
@@ -37,14 +37,14 @@
             />
           </div>
           <input
-            v-model="phone"
+            v-model="form.phone"
             name="phone"
             type="tel"
             class="form__input"
             placeholder="Телефон"
           />
           <textarea
-            v-model="propModel"
+            v-model="form.description"
             class="form__textarea"
             name="description"
             placeholder="Опишіть своє питання"
@@ -76,10 +76,13 @@ export default {
   },
   data() {
     return {
-      name: '',
-      email: '',
-      phone: '',
-      description: '',
+      form: {
+        name: '',
+        email: '',
+        phone: '',
+        description: '',
+      },
+
       success: false
     }
   },
@@ -87,13 +90,17 @@ export default {
     ...mapGetters({
       getContactPopupDescr: 'getContactPopupDescr',
     }),
-    propModel: {
-      get () { return this.getContactPopupDescr },
-      set (value) { this.$emit('update:prop', value) },
-    },
+    // propModel: {
+    //   get () { return this.getContactPopupDescr },
+    //   set (value) { this.$emit('update:prop', value) },
+    // },
   },
-  created() {
-    console.log('emailjs', emailjs)
+ mounted() {
+    if (window.emailjs) {
+      window.emailjs.init(process.env.EMAILJS_PUBLIC_TOKEN)
+    } else {
+      console.error("EmailJS не загружен")
+    }
   },
   methods: {
     ...mapMutations({
@@ -106,17 +113,17 @@ export default {
       this.description = ''
     },
     sendEmail() {
-      // try {
-      //   emailjs.sendForm('service_rwlaglf', 'template_znxg523', this.$refs.form, 'T1s9GAiwYR1Hht8DD')
-      //     .then((response) => {
-      //       console.log('SUCCESS!',response.status, response.text);
-      //   }, (error) => {
-      //       console.log('FAILED...', error);
-      //   });
-
-      // } catch (error) {
-      //   console.log({ error })
-      // }
+      emailjs.send(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, this.form, process.env.EMAILJS_PUBLIC_TOKEN)
+        .then(() => {
+          alert('Сообщение отправлено!')
+          this.form.name = ''
+          this.form.email = ''
+          this.form.message = ''
+        })
+        .catch((error) => {
+          console.error('Ошибка отправки:', error)
+          alert('Ошибка при отправке сообщения.')
+        })
 
       this.contactPopupClose();
       this.resetFormInputs()

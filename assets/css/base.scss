@@ -12,11 +12,7 @@ body {
 .container {
   max-width: 1152px;
   width: 100%;
-  margin: 0 auto;
-
-  @include _1280 {
-    margin: 0 2rem;
-  }
+  margin: 0 2rem;
 
   @include _900 {
     max-width: 100%;
@@ -40,11 +36,13 @@ p {
   line-height: 1em;
 }
 
-.page-enter-active, .page-leave-active {
+.page-enter-active,
+.page-leave-active {
   transition: opacity 0.15s ease-in-out;
 }
 
-.page-enter, .page-leave-active {
+.page-enter,
+.page-leave-active {
   opacity: 0;
 }
 
