@@ -28,13 +28,13 @@
               class="form__input"
               placeholder="Ім'я"
             />
-            <input
+            <!-- <input
               v-model="form.email"
               name="email"
               type="email"
               class="form__input"
               placeholder="Єл. пошта"
-            />
+            /> -->
           </div>
           <input
             v-model="form.phone"
@@ -115,14 +115,12 @@ export default {
     sendEmail() {
       emailjs.send(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, this.form, process.env.EMAILJS_PUBLIC_TOKEN)
         .then(() => {
-          alert('Сообщение отправлено!')
           this.form.name = ''
           this.form.email = ''
           this.form.message = ''
         })
         .catch((error) => {
           console.error('Ошибка отправки:', error)
-          alert('Ошибка при отправке сообщения.')
         })
 
       this.contactPopupClose();

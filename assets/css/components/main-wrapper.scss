@@ -41,21 +41,17 @@
 
   &__section {
     display: flex;
+    height: 100%;
 
     @include _768 {
       flex-direction: column;
       height: 90%;
-      padding-top: 5rem;
+      padding-top: 7rem;
     }
   }
 
   &__img {
-    // position: absolute;
-    // top: 0;
-    // right: 0;
-    // bottom: 0;
     width: 45%;
-    // height: 100%;
     object-fit: cover;
     filter: brightness(0.8);
 

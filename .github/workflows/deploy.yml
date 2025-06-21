@@ -1,0 +1,29 @@
+name: Deploy Nuxt App to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_DEPLOY_KEY }}
+
+      - name: Deploy to VPS
+        run: |
+          ssh -o StrictHostKeyChecking=no root@your-vps-ip << 'EOF'
+            cd /var/www/nuxt-app
+            git pull
+            npm install
+            npm run build
+            pm2 restart nuxt-app || pm2 start npm --name "nuxt-app" -- run start
+          EOF

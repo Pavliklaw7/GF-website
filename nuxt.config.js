@@ -56,6 +56,12 @@ export default {
     ],
   },
 
+  env: {
+    EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
+    EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
+    EMAILJS_PUBLIC_TOKEN: process.env.EMAILJS_PUBLIC_TOKEN,
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/css/reset.css', '~/assets/css/main.scss'],
 
@@ -83,7 +89,7 @@ export default {
       { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
     ],
     defaultLocale: 'ua',
-    strategy: 'prefix',
+    strategy: 'no_prefix',
     lazy: true,
     langDir: 'locales/',
     vueI18n: {
