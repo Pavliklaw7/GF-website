@@ -2,11 +2,11 @@
   <main class="main-wrapper__section section">
     <div class="container">
       <div class="section__inner">
-        <h1 class="section__title">Адвокат Александр Павлік</h1>
+        <h1 class="section__title">Адвокат Олександр Павлік</h1>
         <!-- <h3 class="section__subTitle">Адвокат | засновник компанії</h3> -->
         <div class="section__text">Ваш вибір, мій пріоритет!</div>
         <div class="section__text"> <strong>26</strong> років досвіду !</div>
-        <div class="section__text">Більше 1000 Успіших кейсів</div>
+        <div class="section__text">Більше 2500 успішних кейсів</div>
         <button
           class="section__btn btn primary d-none-768"
           @click="contactPopupOpen()"
