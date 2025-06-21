@@ -45,7 +45,8 @@
 
     @include _768 {
       flex-direction: column;
-      height: 90%;
+      justify-content: space-between;
+      height: 97%;
       padding-top: 7rem;
     }
   }
