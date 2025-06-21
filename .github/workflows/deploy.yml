@@ -6,7 +6,8 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
+    name: Deploy viw SSH
     runs-on: ubuntu-latest
 
     steps:
@@ -16,14 +17,14 @@ jobs:
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.8.0
         with:
-          ssh-private-key: ${{ secrets.VPS_DEPLOY_KEY }}
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no root@your-vps-ip << 'EOF'
-            cd /var/www/nuxt-app
-            git pull
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER} }}@${{ secrets.VPS_HOST }} << 'EOF'
+            cd /var/www/GF-website
+            git pull origin main
             npm install
             npm run build
-            pm2 restart nuxt-app || pm2 start npm --name "nuxt-app" -- run start
+            pm2 restart gf-website
           EOF
