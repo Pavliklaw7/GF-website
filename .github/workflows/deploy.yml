@@ -23,6 +23,11 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" << 'EOF'
             cd /var/www/GF-website
+            cat > .env <<EOL
+          EMAILJS_SERVICE_ID=${{ secrets.EMAILJS_SERVICE_ID }}
+          EMAILJS_TEMPLATE_ID=${{ secrets.EMAILJS_TEMPLATE_ID }}
+          EMAILJS_PUBLIC_TOKEN=${{ secrets.EMAILJS_PUBLIC_TOKEN }}
+          EOL
             git pull origin main
             npm install
             npm run build
