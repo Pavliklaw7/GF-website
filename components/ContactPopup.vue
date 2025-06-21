@@ -78,7 +78,7 @@ export default {
     return {
       form: {
         name: '',
-        email: '',
+        email: 'test@mail.com',
         phone: '',
         description: '',
       },
