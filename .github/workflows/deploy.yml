@@ -21,7 +21,7 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER} }}@${{ secrets.VPS_HOST }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no "${{ secrets.VPS_USER} }}@${{ secrets.VPS_HOST }}" << 'EOF'
             cd /var/www/GF-website
             git pull origin main
             npm install
